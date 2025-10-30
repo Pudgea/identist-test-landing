@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import HorizontalBorder from "../common/borders/horizontal.border"
 import LazyImage from "../common/lazy-image/lazy-image"
 import { animationSlideLeft, animationSlideRight } from "../../constants/animation.constants"
+import { getImagePath } from "../../constants/infoConstants"
 import './index.scss'
 
 const Principles = () => {
@@ -28,13 +29,13 @@ const Principles = () => {
             >
                 <div className="gallery--item">
                     <LazyImage 
-                        src="/principles/1.jpg" 
+                        src={getImagePath("principles/1.jpg")} 
                         alt="Принципы работы"
                     />
                 </div>
                 <div className="gallery--item">
                     <LazyImage 
-                        src="/principles/2.jpg" 
+                        src={getImagePath("principles/2.jpg")} 
                         alt="Качество обслуживания"
                     />
                 </div>

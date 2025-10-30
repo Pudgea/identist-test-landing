@@ -1,4 +1,5 @@
 import animationConstants, { animatiomText } from '../../constants/animation.constants';
+import { getImagePath } from '../../constants/infoConstants';
 import './index.scss'
 import { motion } from "framer-motion"
 
@@ -12,7 +13,7 @@ const Hero = () => {
                 {...animatiomText}
             >
                 <img 
-                    src="/logo.png" 
+                    src={getImagePath('logo.png')} 
                     alt="iDentist Logo" 
                     loading="eager"
                     decoding="async"
@@ -26,25 +27,25 @@ const Hero = () => {
                 className="gallery"
             >
                 <img 
-                    src="/gallery/1.png" 
+                    src={getImagePath('gallery/1.png')} 
                     alt="Фото клиники iDentist 1" 
                     loading="lazy"
                     decoding="async"
                 />
                 <img 
-                    src="/gallery/2.png" 
+                    src={getImagePath('gallery/2.png')} 
                     alt="Фото клиники iDentist 2" 
                     loading="lazy"
                     decoding="async"
                 />
                 <img 
-                    src="/gallery/3.png" 
+                    src={getImagePath('gallery/3.png')} 
                     alt="Фото клиники iDentist 3" 
                     loading="lazy"
                     decoding="async"
                 />
                 <img 
-                    src="/gallery/4.png" 
+                    src={getImagePath('gallery/4.png')} 
                     alt="Фото клиники iDentist 4" 
                     loading="lazy"
                     decoding="async"

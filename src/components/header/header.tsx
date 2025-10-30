@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { getImagePath } from '../../constants/infoConstants';
 import AppointmentBtn from '../common/btns/appointment.btn';
 import './index.scss'
 
@@ -20,7 +21,7 @@ const Header = () => {
     return (
         <div className="header">
             <img 
-                src="/logo.png" 
+                src={getImagePath('logo.png')} 
                 className="logo" 
                 alt="iDentist Logo"
                 loading="eager"

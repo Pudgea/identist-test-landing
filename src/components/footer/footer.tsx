@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { animationSlideUp, animationSlideLeft, animationSlideRight } from "../../constants/animation.constants"
-import { phoneNumber, mapLink } from "../../constants/infoConstants"
+import { phoneNumber, mapLink, getImagePath } from "../../constants/infoConstants"
 import './index.scss'
 
 const Footer = () => {
@@ -31,7 +31,7 @@ const Footer = () => {
                     {...animationSlideLeft}
                 >
                     <img 
-                        src="/logo.png" 
+                        src={getImagePath('logo.png')} 
                         alt="iDentist Logo" 
                         className="footer--logo"
                         loading="lazy"

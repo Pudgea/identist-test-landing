@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import HorizontalBorder from "../common/borders/horizontal.border";
 import LazyImage from "../common/lazy-image/lazy-image";
 import { animationSlideUp } from "../../constants/animation.constants";
+import { getImagePath } from "../../constants/infoConstants";
 
 import './index.scss'
 
@@ -12,20 +13,20 @@ const Review = () => {
     const galleryItems = [
         {
             id: 1,
-            image1: "/about/1_1.jpg",
-            image2: "/about/1_2.jpg",
+            image1: getImagePath("about/1_1.jpg"),
+            image2: getImagePath("about/1_2.jpg"),
             alt: "О клинике"
         },
         {
             id: 2,
-            image1: "/about/2_1.jpg",
-            image2: "/about/2_2.jpg",
+            image1: getImagePath("about/2_1.jpg"),
+            image2: getImagePath("about/2_2.jpg"),
             alt: "Наши услуги"
         },
         {
             id: 3,
-            image1: "/about/3_1.jpg",
-            image2: "/about/3_2.jpg",
+            image1: getImagePath("about/3_1.jpg"),
+            image2: getImagePath("about/3_2.jpg"),
             alt: "Команда профессионалов"
         }
     ]

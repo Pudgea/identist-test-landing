@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import HorizontalBorder from "../common/borders/horizontal.border"
 import LazyImage from "../common/lazy-image/lazy-image"
 import { animationSlideLeft, animationSlideRight } from "../../constants/animation.constants"
+import { getImagePath } from "../../constants/infoConstants"
 import { teamData } from "../../mocks/teamData"
 import './index.scss'
 
@@ -33,7 +34,7 @@ const Team = () => {
                             whileTap={{ scale: 0.95 }}
                         >
                             <LazyImage 
-                                src={member.photo} 
+                                src={getImagePath(member.photo)} 
                                 alt={member.name}
                             />
                         </motion.div>
@@ -47,7 +48,7 @@ const Team = () => {
                 >
                     <div className="profile--image">
                         <LazyImage 
-                            src={teamData[selectedMember].photo} 
+                            src={getImagePath(teamData[selectedMember].photo)} 
                             alt={teamData[selectedMember].name}
                         />
                     </div>
