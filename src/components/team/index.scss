@@ -1,0 +1,305 @@
+@use "../../App.scss" as *;
+
+.team {
+    display: flex;
+    flex-direction: column;
+    gap: $g_lg;
+    padding: 40px 0;
+    position: relative;
+
+    &--container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    &--gallery {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 10px 0;
+        
+        &::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: $color_primary_2;
+            border-radius: 2px;
+        }
+
+        .gallery--item {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            border: 3px solid transparent;
+            position: relative;
+
+            &:hover {
+                transform: scale(1.1);
+                border-color: $color_primary_2;
+            }
+
+            &.active {
+                border-color: $color_primary_2;
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(180, 171, 93, 0.3);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+    }
+
+    &--profile {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        min-height: 400px;
+
+        .profile--image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        .profile--info {
+            flex: 1;
+            display: flex;
+            gap: 60px;
+
+            .info--left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .member--name {
+                    @include txt($fz_title, $color_primary_2, $fw_bold);
+                    line-height: 1.3;
+                    margin: 0;
+                }
+
+                .member--specialty {
+                    @include txt($fz_title_sm, $color_txt, $fw_bold);
+                    margin: 0;
+                }
+            }
+
+            .info--right {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .member--role {
+                    @include txt($fz_title_sm, $color_primary_2, $fw_bold);
+                    margin: 0;
+                }
+
+                .member--services {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: $g_md;
+
+                    li {
+                        @include txt($fz_lg, $color_txt, $fw_def);
+                        line-height: 1.4;
+                        position: relative;
+                        padding-left: 0;
+
+                        &::before {
+                            content: "•";
+                            color: $color_primary_2;
+                            font-weight: bold;
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Адаптивность для планшетов
+    @media (max-width: 1024px) {
+        padding: 30px 0;
+
+        &--container {
+            gap: 30px;
+        }
+
+        &--gallery {
+            gap: 15px;
+
+            .gallery--item {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        &--profile {
+            gap: 30px;
+            min-height: 350px;
+
+            .profile--image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile--info {
+                gap: 40px;
+
+                .info--left {
+                    .member--name {
+                        font-size: 28px;
+                    }
+
+                    .member--specialty {
+                        font-size: 24px;
+                    }
+                }
+
+                .info--right {
+                    .member--role {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Адаптивность для мобильных устройств
+    @media (max-width: 768px) {
+        padding: 20px 0;
+
+        &--container {
+            gap: 25px;
+        }
+
+        &--gallery {
+            gap: 12px;
+
+            .gallery--item {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        &--profile {
+            flex-direction: column;
+            gap: 25px;
+            min-height: auto;
+            text-align: center;
+
+            .profile--image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile--info {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+
+                .info--left {
+                    .member--name {
+                        font-size: 24px;
+                    }
+
+                    .member--specialty {
+                        font-size: 20px;
+                    }
+                }
+
+                .info--right {
+                    .member--role {
+                        font-size: 18px;
+                    }
+
+                    .member--services {
+                        text-align: left;
+                        max-width: 400px;
+                        margin: 0 auto;
+
+                        li {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Адаптивность для маленьких мобильных
+    @media (max-width: 480px) {
+        &--gallery {
+            .gallery--item {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &--profile {
+            .profile--image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile--info {
+                .info--left {
+                    .member--name {
+                        font-size: 20px;
+                    }
+
+                    .member--specialty {
+                        font-size: 18px;
+                    }
+                }
+
+                .info--right {
+                    .member--role {
+                        font-size: 16px;
+                    }
+
+                    .member--services {
+                        li {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

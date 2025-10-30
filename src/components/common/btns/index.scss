@@ -1,0 +1,36 @@
+@use '../../../App.scss' as *;
+
+.btn{
+    cursor: pointer;
+    padding: $g_md;
+    border-radius: $br;
+    transition: 0.3s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--primary{
+        @include txt($fz_md,$color_txt_primary);
+        background-color: $color_primary;
+
+        &:hover{
+            scale: 1.05;
+            transition: 0.3 ease    ;
+        }
+    }
+
+    &--outline{
+        @include txt($fz_md,$color_txt_primary);
+        background-color: transparent;
+        border: 2px solid $color_txt_primary;
+
+        &:hover{
+            background-color: $color_txt_primary;
+            color: $color_primary_2;
+            scale: 1.05;
+            transition: 0.3s ease;
+        }
+    }
+}

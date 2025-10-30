@@ -1,0 +1,29 @@
+$color_primary: #000;
+// $color_primary: #B4AB5D;
+$color_primary_2: #B4AB5D;
+$color_bg: #fff;
+$color_txt: #000;
+$color_txt_primary: #fff;
+
+$fz_sm: 12px;
+$fz_md: 14px;
+$fz_lg: 16px;
+$fz_title_sm: 22px;
+$fz_title: 30px;
+
+$fw_def: 400;
+$fw_bold: 700;
+
+$g_sm:5px;
+$g_md: 10px;
+$g_lg: 20px;
+
+$br: 10px;
+
+
+//txt mixin
+@mixin txt($fs: $fz_md, $color: $color_txt, $fw: $fw_def) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}

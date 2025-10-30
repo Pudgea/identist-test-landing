@@ -1,0 +1,257 @@
+@use "../../App.scss" as *;
+
+.review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $g_lg;
+    padding-block: $g_lg;
+
+    .about--container {
+        width: 100%;
+        
+        .about--gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: $g_lg;
+            margin-bottom: 40px;
+
+            .gallery--block {
+                position: relative;
+                height: 300px;
+                border-radius: $br;
+                overflow: hidden;
+                cursor: pointer;
+                transition: all 0.4s ease;
+
+                &:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+                }
+
+                .block--image-container {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+
+                    .block--image {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: opacity 0.2s ease;
+                        display: block;
+
+                        &.visible {
+                            opacity: 1;
+                        }
+
+                        &.hidden {
+                            opacity: 0;
+                        }
+                    }
+
+                    .block--overlay {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(
+                            180deg,
+                            transparent 0%,
+                            transparent 40%,
+                            rgba(0, 0, 0, 0.3) 70%,
+                            rgba(0, 0, 0, 0.8) 100%
+                        );
+                        display: flex;
+                        align-items: flex-end;
+                        padding: 20px;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+
+                        .overlay--content {
+                            color: white;
+                            width: 100%;
+
+                            .overlay--title {
+                                @include txt(18px, white, $fw_bold);
+                                margin: 0 0 8px 0;
+                                line-height: 1.3;
+                            }
+
+                            .overlay--description {
+                                @include txt($fz_md, rgba(255, 255, 255, 0.9), $fw_def);
+                                margin: 0;
+                                line-height: 1.4;
+                            }
+                        }
+                    }
+
+                    &:hover .block--overlay {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .about--content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 40px;
+
+            p {
+                @include txt($fz_title_sm, $color_txt, $fw_bold);
+                line-height: 1.4;
+                margin: 0;
+                flex: 1;
+
+                &:first-child {
+                    text-align: left;
+                    @include txt($fz_title, $color_txt, $fw_bold);
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    &--container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        img{
+            width: 33%;
+            height: auto;
+            object-fit: cover;
+            border-bottom-left-radius: $br;
+            border-top-left-radius: $br;
+        }
+
+        .content{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            &--block{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                &--title{
+                    background-color: $color_primary_2;
+                    padding: $g_md $g_lg;
+                    border-bottom-right-radius: $br;
+                    border-top-right-radius: $br;
+                    width: 100%;
+                    p{
+                        @include txt($fz_md, $color_txt_primary);
+                    }
+                }
+    
+                &--text{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: $br;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    p{
+                        @include txt($fz_title_sm, _ , $fw_bold);
+                        max-width: 600px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Адаптивность для планшетов
+    @media (max-width: 1024px) {
+        .about--container {
+            .about--gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 30px;
+
+                .gallery--block {
+                    height: 250px;
+                }
+            }
+
+            .about--content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+
+                p {
+                    text-align: center !important;
+                }
+            }
+        }
+    }
+
+    // Адаптивность для мобильных устройств
+    @media (max-width: 768px) {
+        .about--container {
+            .about--gallery {
+                gap: 15px;
+                margin-bottom: 25px;
+
+                .gallery--block {
+                    height: 200px;
+
+                    .block--image-container {
+                        .block--overlay {
+                            padding: 15px;
+
+                            .overlay--content {
+                                .overlay--title {
+                                    font-size: 16px;
+                                }
+
+                                .overlay--description {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .about--content {
+                gap: 15px;
+                margin-bottom: 25px;
+
+                p {
+                    font-size: 18px;
+
+                    &:first-child {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Адаптивность для маленьких мобильных
+    @media (max-width: 480px) {
+        .about--container {
+            .about--content {
+                p {
+                    font-size: 16px;
+
+                    &:first-child {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

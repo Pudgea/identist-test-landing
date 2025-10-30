@@ -1,0 +1,25 @@
+@use '../../../App.scss' as *;
+
+.border{
+    background-color: $color_primary;
+
+    &--vertical{
+        height: 100%;
+        width: 2px;
+    }
+    &--horizontal{
+        width: 100%;
+        height: 2px;
+    }
+
+    &--container{
+        display: flex;
+        flex-direction: column;
+        gap: $g_sm;
+        width: 100%;
+
+        p{
+            @include txt($fz_lg,_,$fw_bold);
+        }
+    }
+}

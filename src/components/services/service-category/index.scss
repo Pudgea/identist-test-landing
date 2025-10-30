@@ -1,0 +1,75 @@
+@use '../../../App.scss' as *;
+
+.service-category {
+    border: 1px solid rgba($color_txt, 0.1);
+    border-radius: $br;
+    overflow: hidden;
+
+    &--header {
+        display: flex;
+        align-items: center;
+        gap: $g_lg;
+        padding: $g_lg * 1.5;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: $color_bg;
+
+        &:hover {
+            background-color: rgba($color_txt, 0.02);
+        }
+    }
+
+    &--number {
+        @include txt($fz_title_sm, $color_primary_2, $fw_bold);
+        min-width: 50px;
+    }
+
+    &--title {
+        @include txt($fz_title_sm, $color_txt, $fw_bold);
+        flex: 1;
+        margin: 0;
+        text-transform: lowercase;
+    }
+
+    &--toggle {
+        @include txt($fz_title_sm, $color_txt, $fw_def);
+        min-width: 40px;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &--content {
+        overflow: hidden;
+    }
+
+    &--list {
+        background-color: $color_bg;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: $g_lg;
+        padding: $g_lg;
+    }
+
+    @media (max-width: 768px) {
+        &--header {
+            padding: $g_lg;
+        }
+
+        &--number {
+            min-width: 40px;
+        }
+
+        &--title {
+            font-size: $fz_lg;
+        }
+
+        &--toggle {
+            font-size: $fz_lg;
+        }
+    }
+}
+
