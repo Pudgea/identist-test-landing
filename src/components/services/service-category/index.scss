@@ -55,6 +55,8 @@
     }
 
     @media (max-width: 768px) {
+        text-align: center;
+
         &--header {
             padding: $g_lg;
         }

@@ -1,6 +1,7 @@
 import './App.scss'
 import Header from './components/header/header'
 import Hero from './components/hero/hero'
+import CheckUp from './components/checkup/checkup'
 import Services from './components/services/services'
 import Review from './components/review/review'
 import Principles from './components/principles/prinsiples'
@@ -14,6 +15,7 @@ function App() {
       <Header/>
       <div className="container">
         <Hero/>
+        <CheckUp/>
         <div id="about">
           <Review/>
         </div>

@@ -1,11 +1,11 @@
 @use "../../App.scss" as *;
 
 .footer {
-    margin-top: 80px;
+    width: 100%;
     padding: 0 20px;
 
     &--container {
-        max-width: 1200px;
+        width: 100%;
         margin: 0 auto;
         border-radius: 30px;
         padding: 60px 40px 40px;
@@ -162,7 +162,7 @@
 
     &--map {
         margin-top: 40px;
-        max-width: 1200px;
+        width: 100%;
         margin-inline: auto;
         padding: 0 20px;
 
@@ -190,7 +190,7 @@
         margin-block: 20px;
 
         &--container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             background: rgba(180, 171, 93, 0.1);
             border-radius: 20px;
@@ -262,6 +262,7 @@
     @media (max-width: 768px) {
         margin-top: 60px;
         padding: 0 10px;
+        text-align: center;
 
         &--container {
             grid-template-columns: 1fr;
@@ -366,6 +367,7 @@
     // Адаптивность для маленьких мобильных
     @media (max-width: 480px) {
         padding: 0 5px;
+        text-align: center;
 
         &--container {
             padding: 30px 15px 20px;
@@ -382,6 +384,8 @@
         }
 
         &--brand {
+            text-align: center;
+
             .footer--logo {
                 height: 40px;
             }
@@ -392,6 +396,8 @@
         }
 
         &--links {
+            text-align: center;
+
             .links--title {
                 font-size: 18px;
             }
@@ -404,12 +410,16 @@
         }
 
         &--contact {
+            text-align: center;
+
             .contact--title {
                 font-size: 18px;
             }
 
             .contact--info {
                 .contact--item {
+                    justify-content: center;
+
                     span {
                         font-size: 14px;
                     }

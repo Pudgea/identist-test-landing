@@ -29,29 +29,15 @@
                     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
                 }
 
-                .block--image-container {
+                .block--video-container {
                     position: relative;
                     width: 100%;
                     height: 100%;
                     overflow: hidden;
 
-                    .block--image {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
+                    .block--video {
                         width: 100%;
                         height: 100%;
-                        object-fit: cover;
-                        transition: opacity 0.2s ease;
-                        display: block;
-
-                        &.visible {
-                            opacity: 1;
-                        }
-
-                        &.hidden {
-                            opacity: 0;
-                        }
                     }
 
                     .block--overlay {
@@ -72,6 +58,8 @@
                         padding: 20px;
                         opacity: 0;
                         transition: opacity 0.3s ease;
+                        pointer-events: none;
+                        z-index: 2;
 
                         .overlay--content {
                             color: white;
@@ -192,6 +180,10 @@
 
                 p {
                     text-align: center !important;
+
+                    &:first-child {
+                        text-align: center !important;
+                    }
                 }
             }
         }
@@ -199,6 +191,8 @@
 
     // Адаптивность для мобильных устройств
     @media (max-width: 768px) {
+        text-align: center;
+
         .about--container {
             .about--gallery {
                 gap: 15px;
@@ -207,7 +201,7 @@
                 .gallery--block {
                     height: 200px;
 
-                    .block--image-container {
+                    .block--video-container {
                         .block--overlay {
                             padding: 15px;
 
@@ -228,12 +222,15 @@
             .about--content {
                 gap: 15px;
                 margin-bottom: 25px;
+                text-align: center;
 
                 p {
                     font-size: 18px;
+                    text-align: center !important;
 
                     &:first-child {
                         font-size: 24px;
+                        text-align: center !important;
                     }
                 }
             }
@@ -242,13 +239,21 @@
 
     // Адаптивность для маленьких мобильных
     @media (max-width: 480px) {
+        
         .about--container {
             .about--content {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+
                 p {
                     font-size: 16px;
+                    text-align: center !important;
 
                     &:first-child {
                         font-size: 20px;
+                        text-align: center !important;
                     }
                 }
             }

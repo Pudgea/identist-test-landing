@@ -121,6 +121,7 @@
     // Адаптивность для мобильных устройств
     @media (max-width: 768px) {
         padding: 20px 0;
+        text-align: center;
 
         &--container{
             gap: 30px;
@@ -158,6 +159,8 @@
 
     // Адаптивность для маленьких мобильных
     @media (max-width: 480px) {
+        text-align: center;
+
         &--gallery{
             height: auto;
 

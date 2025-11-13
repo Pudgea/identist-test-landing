@@ -1,0 +1,204 @@
+@use '../../App.scss' as *;
+
+.checkup {
+    width: 100%;
+    padding: 40px 0;
+    position: relative;
+
+    &--container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border: 2px solid $color_primary_2;
+        background: $color_bg;
+        position: relative;
+        min-height: 500px;
+    }
+
+    &--content {
+        background: $color_bg;
+        padding: 60px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    &--title {
+        @include txt($fz_title_sm, $color_txt, $fw_bold);
+        text-transform: uppercase;
+        margin: 0 0 25px 0;
+        line-height: 1.3;
+        letter-spacing: 1px;
+    }
+
+    &--price {
+        @include txt($fz_title_sm, $color_primary_2, $fw_bold);
+        font-size: calc($fz_title_sm * 1.6);
+        margin: 0 0 35px 0;
+        line-height: 1;
+    }
+
+    &--services {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 35px 0;
+        display: flex;
+        flex-direction: column;
+        gap: $g_md;
+
+        li {
+            @include txt($fz_lg, $color_txt, $fw_def);
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+
+            &::before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: $color_primary_2;
+                font-weight: bold;
+                font-size: $fz_lg;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    &--button {
+        margin-top: auto;
+    }
+
+    &--image {
+        position: relative;
+        overflow: hidden;
+        background: $color_bg;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+
+    // Адаптивность для планшетов
+    @media (max-width: 1024px) {
+        padding: 30px 0;
+
+        &--container {
+            grid-template-columns: 1fr;
+            min-height: auto;
+        }
+
+        &--content {
+            padding: 50px 40px;
+        }
+
+        &--title {
+            font-size: $fz_title_sm;
+        }
+
+        &--price {
+            font-size: calc($fz_title_sm * 1.45);
+        }
+
+        &--image {
+            height: 400px;
+        }
+    }
+
+    // Адаптивность для мобильных устройств
+    @media (max-width: 768px) {
+        padding: 20px 0;
+        text-align: center;
+
+        &--container {
+            border-radius: 20px;
+        }
+
+        &--content {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        &--title {
+            font-size: $fz_title_sm;
+            margin-bottom: 20px;
+        }
+
+        &--price {
+            font-size: calc($fz_title_sm * 1.27);
+            margin-bottom: 30px;
+        }
+
+        &--services {
+            align-items: flex-start;
+            max-width: 400px;
+            margin: 0 auto 30px;
+
+            li {
+                font-size: $fz_md;
+                text-align: left;
+            }
+        }
+
+        &--image {
+            height: 350px;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    // Адаптивность для маленьких мобильных
+    @media (max-width: 480px) {
+        padding: 20px 0;
+
+        &--content {
+            padding: 30px 20px;
+        }
+
+        &--title {
+            font-size: $fz_lg;
+            margin-bottom: 15px;
+        }
+
+        &--price {
+            font-size: $fz_title_sm;
+            margin-bottom: 25px;
+        }
+
+        &--services {
+            gap: 10px;
+            margin-bottom: 25px;
+
+            li {
+                font-size: $fz_md;
+                padding-left: 18px;
+            }
+        }
+
+        &--image {
+            height: 300px;
+        }
+    }
+}
+

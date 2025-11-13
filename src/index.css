@@ -36,6 +36,7 @@ html, body {
   .container {
     padding-inline: 15px;
     gap: 30px;
+    text-align: center;
   }
 }
 
@@ -44,5 +45,6 @@ html, body {
     padding-inline: 10px;
     gap: 25px;
     margin-top: 60px;
+    text-align: center;
   }
 }

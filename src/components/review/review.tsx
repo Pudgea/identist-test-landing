@@ -1,32 +1,29 @@
-import { useState } from "react"
 import { motion } from "framer-motion";
 import HorizontalBorder from "../common/borders/horizontal.border";
-import LazyImage from "../common/lazy-image/lazy-image";
+import LazyVideo from "../common/lazy-video/lazy-video";
 import { animationSlideUp } from "../../constants/animation.constants";
 import { getImagePath } from "../../constants/infoConstants";
 
 import './index.scss'
 
 const Review = () => {
-    const [hoveredBlock, setHoveredBlock] = useState<number | null>(null)
-
     const galleryItems = [
         {
             id: 1,
-            image1: getImagePath("about/1_1.jpg"),
-            image2: getImagePath("about/1_2.jpg"),
+            video: getImagePath("about/videos/1.MP4"),
+            poster: getImagePath("about/1_1.jpg"),
             alt: "О клинике"
         },
         {
             id: 2,
-            image1: getImagePath("about/2_1.jpg"),
-            image2: getImagePath("about/2_2.jpg"),
+            video: getImagePath("about/videos/2.MOV"),
+            poster: getImagePath("about/2_1.jpg"),
             alt: "Наши услуги"
         },
         {
             id: 3,
-            image1: getImagePath("about/3_1.jpg"),
-            image2: getImagePath("about/3_2.jpg"),
+            video: getImagePath("about/videos/3.MOV"),
+            poster: getImagePath("about/3_1.jpg"),
             alt: "Команда профессионалов"
         }
     ]
@@ -48,28 +45,20 @@ const Review = () => {
             />
             <div className="about--container">
                 <div className="about--gallery">
-                    {galleryItems.map((item, index) => (
+                    {galleryItems.map((item) => (
                         <motion.div
                             key={item.id}
                             className="gallery--block"
                             {...blockAnimation}
-                            onMouseEnter={() => setHoveredBlock(item.id)}
-                            onMouseLeave={() => setHoveredBlock(null)}
                         >
-                            <div className="block--image-container">
-                                <div className={`block--image ${hoveredBlock === item.id ? 'hidden' : 'visible'}`}>
-                                    <LazyImage
-                                        src={item.image1}
-                                        alt={item.alt}
-                                    />
-                                </div>
-                                <div className={`block--image ${hoveredBlock === item.id ? 'visible' : 'hidden'}`}>
-                                    <LazyImage
-                                        src={item.image2}
-                                        alt={item.alt}
-                                    />
-                                </div>
-                                <div className="block--overlay">
+                            <div className="block--video-container">
+                                <LazyVideo
+                                    src={item.video}
+                                    poster={item.poster}
+                                    alt={item.alt}
+                                    className="block--video"
+                                />
+                                {/* <div className="block--overlay">
                                     <div className="overlay--content">
                                         <h3 className="overlay--title">
                                             {index === 0 && "Современная клиника"}
@@ -82,7 +71,7 @@ const Review = () => {
                                             {index === 2 && "Высококвалифицированные специалисты"}
                                         </p>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </motion.div>
                     ))}

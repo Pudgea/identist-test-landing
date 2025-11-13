@@ -81,6 +81,7 @@
     @media (max-width: 768px) {
         gap: 15px;
         padding-block: 15px;
+        text-align: center;
 
         .title{
             flex-direction: column;
@@ -113,6 +114,8 @@
 
     // Адаптивность для маленьких мобильных
     @media (max-width: 480px) {
+        text-align: center;
+
         .title{
             img{
                 height: 50px;
