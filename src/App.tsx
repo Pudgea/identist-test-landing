@@ -6,6 +6,7 @@ import Services from './components/services/services'
 import Review from './components/review/review'
 import Principles from './components/principles/prinsiples'
 import Team from './components/team/team'
+import Works from './components/works/works'
 import Reviews from './components/reviews/reviews'
 import Footer from './components/footer/footer'
 
@@ -28,11 +29,12 @@ function App() {
         <div id="team">
           <Team/>
         </div>
+        <Works/>
         <div id="reviews">
           <Reviews/>
         </div>
+        <Footer/>
       </div>
-      <Footer/>
     </div>
   )
 }

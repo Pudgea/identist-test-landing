@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { animationSlideLeft, animationSlideRight } from "../../constants/animation.constants"
 import './index.scss'
+import HorizontalBorder from "../common/borders/horizontal.border"
 
 const Reviews = () => {
     const reviewsData = [
@@ -59,7 +60,7 @@ const Reviews = () => {
 
     return (
         <div className="reviews">
-            {/* <HorizontalBorder txt="Отзывы наших клиентов" /> */}
+            <HorizontalBorder txt="Отзывы наших клиентов" />
             <div className="reviews--container">
                 <div className="reviews--grid">
                     {reviewsData.map((review, index) => (

@@ -26,16 +26,8 @@ export const servicesData = [
                 price: "от 172 000 〒"
             },
             {
-                name: "Отбеливание системой Opalescence",
-                price: "от 158 000 〒"
-            },
-            {
                 name: "Лечение пародонтита",
                 price: "от 82 250 〒"
-            },
-            {
-                name: "Домашнее отбеливание системой Opalescence",
-                price: "от 84 690 〒"
             }
         ]
     },
