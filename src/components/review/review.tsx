@@ -5,8 +5,11 @@ import { animationSlideUp } from "../../constants/animation.constants";
 import { getImagePath } from "../../constants/infoConstants";
 
 import './index.scss'
+import LazyImage from "../common/lazy-image/lazy-image";
+import { useState } from "react";
 
 const Review = () => {
+    const [hoveredBlock, setHoveredBlock] = useState<number | null>(null)
     const galleryItems = [
         {
             id: 1,
@@ -16,14 +19,14 @@ const Review = () => {
         },
         {
             id: 2,
-            video: getImagePath("about/videos/2.MOV"),
-            poster: getImagePath("about/2_1.jpg"),
+            image1: getImagePath("about/2_1.jpg"),
+            image2: getImagePath("about/2_2.jpg"),
             alt: "Наши услуги"
         },
         {
             id: 3,
-            video: getImagePath("about/videos/3.MOV"),
-            poster: getImagePath("about/3_1.jpg"),
+            image1: getImagePath("about/3_1.jpg"),
+            image2: getImagePath("about/3_2.jpg"),
             alt: "Команда профессионалов"
         }
     ]
@@ -45,34 +48,56 @@ const Review = () => {
             />
             <div className="about--container">
                 <div className="about--gallery">
-                    {galleryItems.map((item) => (
+                    {galleryItems.map((item, index) => (
                         <motion.div
                             key={item.id}
                             className="gallery--block"
                             {...blockAnimation}
+                            onMouseEnter={() => setHoveredBlock(item.id)}
+                            onMouseLeave={() => setHoveredBlock(null)}
                         >
-                            <div className="block--video-container">
-                                <LazyVideo
-                                    src={item.video}
-                                    poster={item.poster}
-                                    alt={item.alt}
-                                    className="block--video"
-                                />
-                                {/* <div className="block--overlay">
-                                    <div className="overlay--content">
-                                        <h3 className="overlay--title">
-                                            {index === 0 && "Современная клиника"}
-                                            {index === 1 && "Качественные услуги"}
-                                            {index === 2 && "Опытная команда"}
-                                        </h3>
-                                        <p className="overlay--description">
-                                            {index === 0 && "Современное оборудование и технологии"}
-                                            {index === 1 && "Полный спектр стоматологических услуг"}
-                                            {index === 2 && "Высококвалифицированные специалисты"}
-                                        </p>
+                            {item.video && (
+                                <div className="block--video-container">
+                                    <LazyVideo
+                                        src={item.video}
+                                        poster={item.poster}
+                                        alt={item.alt}
+                                        className="block--video"
+                                    />
+                                </div>
+                            )}
+                            {item.image1 && item.image2 && (
+                                <div 
+                                    className="block--image-container"
+                                >
+                                    <div className={`block--image ${hoveredBlock === item.id ? 'hidden' : 'visible'}`}>
+                                        <LazyImage
+                                            src={item.image1}
+                                            alt={item.alt}
+                                        />
                                     </div>
-                                </div> */}
-                            </div>
+                                    <div className={`block--image ${hoveredBlock === item.id ? 'visible' : 'hidden'}`}>
+                                        <LazyImage
+                                            src={item.image2}
+                                            alt={item.alt}
+                                        />
+                                    </div>
+                                    <div className="block--overlay">
+                                        <div className="overlay--content">
+                                            <h3 className="overlay--title">
+                                                {index === 0 && "Современная клиника"}
+                                                {index === 1 && "Наши услуги"}
+                                                {index === 2 && "Команда профессионалов"}
+                                            </h3>
+                                            <p className="overlay--description">
+                                                {index === 0 && "Современная клиника"}
+                                                {index === 1 && "Широкий спектр услуг"}
+                                                {index === 2 && "Высококвалифицированные специалисты"}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </div>

@@ -1,0 +1,144 @@
+@use '../../App.scss' as *;
+
+.approach {
+    display: flex;
+    flex-direction: column;
+    gap: $g_lg;
+    padding: 40px 0;
+
+    &--list {
+        display: flex;
+        flex-direction: column;
+        gap: $g_lg;
+    }
+
+    &--card {
+        border: 1px solid rgba($color_txt, 0.1);
+        border-radius: $br;
+        overflow: hidden;
+    }
+
+    &--header {
+        display: flex;
+        align-items: center;
+        gap: $g_lg;
+        padding: $g_lg * 1.5;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: $color_bg;
+
+        &:hover {
+            background-color: rgba($color_txt, 0.02);
+        }
+    }
+
+    &--number {
+        @include txt($fz_title_sm, $color_primary_2, $fw_bold);
+        min-width: 50px;
+    }
+
+    &--title {
+        @include txt($fz_title_sm, $color_txt, $fw_bold);
+        flex: 1;
+        margin: 0;
+        text-transform: lowercase;
+    }
+
+    &--toggle {
+        @include txt($fz_title_sm, $color_txt, $fw_def);
+        min-width: 40px;
+        text-align: center;
+        transition: transform 0.3s ease;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &--content {
+        overflow: hidden;
+    }
+
+    &--body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: $g_lg;
+        align-items: center;
+        padding: $g_lg;
+        background-color: $color_bg;
+    }
+
+    &--description {
+        @include txt($fz_lg, rgba($color_txt, 0.8), $fw_def);
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    &--image {
+        width: 100%;
+        height: 350px;
+        border-radius: $br;
+        overflow: hidden;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.2);
+
+        .lazy-image {
+            width: 100%;
+            height: 100%;
+
+            &--img {
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 30px 0;
+        text-align: center;
+
+        &--header {
+            padding: $g_lg;
+        }
+
+        &--number {
+            min-width: 40px;
+        }
+
+        &--title {
+            font-size: $fz_lg;
+        }
+
+        &--toggle {
+            font-size: $fz_lg;
+        }
+
+        &--body {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        &--image {
+            height: 220px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 20px 0;
+
+        &--number {
+            font-size: 36px;
+        }
+
+        &--title {
+            font-size: 18px;
+        }
+
+        &--description {
+            font-size: 14px;
+        }
+
+        &--image {
+            height: 200px;
+        }
+    }
+}
+

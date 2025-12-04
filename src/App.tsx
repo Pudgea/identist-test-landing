@@ -9,6 +9,7 @@ import Team from './components/team/team'
 import Works from './components/works/works'
 import Reviews from './components/reviews/reviews'
 import Footer from './components/footer/footer'
+import Approaches from './components/approach/approaches'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <div id="about">
           <Review/>
         </div>
+        <Approaches/>
         <div id="services">
           <Services/>
         </div>
